@@ -33,7 +33,7 @@ window.SOUND_S_CONFIG = {
 
 1. ב־Google Cloud Console צור OAuth consent screen, הגדר את שם האפליקציה ואת פרטי התמיכה ואת הקהל המתאים.
 2. צור OAuth Client מסוג Web application.
-3. ב־Supabase → Authentication → Sign In / Providers → Google העתק את כתובת ה־callback שמוצגת שם ל־Authorized redirect URIs ב־Google. היא נראית כך: `https://YOUR_PROJECT.supabase.co/auth/v1/callback`.
+3. הוסף ב־Authorized JavaScript origins את `https://smai-sentinel.github.io`. ב־Supabase → Authentication → Sign In / Providers → Google העתק את כתובת ה־callback שמוצגת שם ל־Authorized redirect URIs ב־Google. היא נראית כך: `https://YOUR_PROJECT.supabase.co/auth/v1/callback`.
 4. העתק את ה־Client ID וה־Client secret **לתוך הגדרות הספק ב־Supabase בלבד** והפעל את הספק.
 5. אם אפליקציית Google במצב Testing, הוסף את כתובות הבדיקה כ־Test users. לפני פתיחה לקהל, השלם את דרישות הפרסום של Google.
 
