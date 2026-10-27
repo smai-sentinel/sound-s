@@ -66,7 +66,7 @@ begin
  if (select count(*) from public.reports where created_at>now()-interval '1 hour')>=100 then
   raise exception 'Report intake limit reached, please retry later';
  end if;
- if not (p_track_id ~ '^original-[0-5]$') and not exists(select 1 from public.tracks where id::text=p_track_id and status='approved') then
+ if not (p_track_id ~ '^(original-[0-5]|spotify:track:[a-zA-Z0-9]{22})$') and not exists(select 1 from public.tracks where id::text=p_track_id and status='approved') then
   raise exception 'Track is not available';
  end if;
  insert into public.reports(track_id,reporter_id,reason,details,contact_email) values(p_track_id,auth.uid(),p_reason,p_details,p_contact_email);

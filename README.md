@@ -7,16 +7,22 @@ An original Hebrew/RTL music experience with a responsive violet-and-charcoal in
 ```sh
 python3 -m http.server 4173
 ```
-Open http://localhost:4173. No build step or package install is needed. The Supabase client is vendored at version 2.95.3. Fonts use Google Fonts with system fallbacks.
+Open http://localhost:4173. No build step or package install is needed. The Supabase client is vendored at version 2.95.3. Fonts use Google Fonts with system fallbacks. Album artwork is loaded directly from Spotify image hosts.
 
 ## What works immediately
 
-- Six original 48-second instrumental demos, synthesized from scratch, stereo PCM WAV at 44.1 kHz / 16-bit. These are **demo compositions**, not Spotify songs.
+- 147 verified real Spotify tracks across ten artist collections, with original artwork, Hebrew/English search, artist filters, pagination and direct source links. Metadata was retrieved from Spotify on 2026-10-27.
+- Persistent official Spotify embed panel: previews or full playback are controlled by Spotify availability/account rules. The panel continues while browsing or minimized; closing it stops playback. Transport/volume/seek for Spotify are controlled inside the official embed, not the local HTML audio controls.
+- The former six synthesized demos are hidden from discovery but retained for backwards compatibility with saved local playlists. No commercial audio files are downloaded or redistributed.
 - Play/pause, seek, volume, next/previous, shuffle, repeat, and supported system Media Session controls.
 - Playback continues on a background tab subject to browser/OS policies. Closing the tab stops playback.
 - Search, mood filters, favorite tracks, and named local playlists survive refresh using localStorage.
 - Add personal audio files without uploading them. Object URLs work during the current visit only; reselect files on a later visit. Do not add these temporary files to a cloud playlist.
 - Paste an official Spotify track/album/artist/playlist URL to open its official embed. Spotify decides playback availability and duration. The custom audio player pauses when opening the embed. Closing/replacing the embed stops its audio.
+
+## Catalog maintenance
+
+`catalog.js` stores public metadata, original source links and image URLs only. It does not store playback tokens or audio previews. Names and URLs are preserved as returned by Spotify. Artist grouping is based on the source collections; one track may occur in several collections. Public reporting accepts Spotify track IDs as well as hosted tracks. Catalog removals are made in `catalog.js`; admin UI does not claim to remove the original song from Spotify.
 
 ## Optional cloud features
 

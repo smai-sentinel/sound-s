@@ -23,10 +23,12 @@ jobs:
           node --check app.js
           node --check cloud.js
           node --check config.js
+          node --check catalog.js
+          node --check catalog-ui.js
       - name: Assemble public files
         run: |
           mkdir -p _site
-          cp index.html style.css app.js cloud.js config.js _site/
+          cp index.html style.css app.js cloud.js config.js catalog.js catalog-ui.js _site/
           cp -r assets vendor _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
